@@ -1,7 +1,8 @@
+package Utils;
 /**
  * Created by 53215 on 2016/12/18.
  */
-public class Utils {
+public class ThreadUtils {
 
     public static void waitForSeconds(int seconds) {
         try {

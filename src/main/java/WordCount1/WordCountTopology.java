@@ -4,13 +4,15 @@ import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
-
-import static Utils.ThreadUtils.waitForMillis;
-
+import Utils.ThreadUtils;
 /**
  * Created by 53215 on 2016/12/18.
  */
 public class WordCountTopology{
+
+    /**
+    * 组件唯一标识符
+    * */
     private static final String SENTENCE_SPOUT_ID = "sentence-spout";
     private static final String SPLIT_BOLT_ID = "split-bolt";
     private static final String COUNT_BOLT_ID = "count-bolt";
@@ -33,7 +35,7 @@ public class WordCountTopology{
         LocalCluster cluster = new LocalCluster();
 
         cluster.submitTopology(TOPOLOGY_NAME,config,builder.createTopology());
-        waitForMillis(10);
+        ThreadUtils.waitForSeconds(10);
         cluster.killTopology(TOPOLOGY_NAME);
         cluster.shutdown();
     }

@@ -1,3 +1,5 @@
+package WordCount1;
+
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
@@ -18,7 +20,7 @@ public class WordCountBolt extends BaseRichBolt {
     private HashMap<String, Long> counts = null;
 
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
-        this.collector = collector;
+        this.collector = outputCollector;
         this.counts = new HashMap<String, Long>();
     }
 
