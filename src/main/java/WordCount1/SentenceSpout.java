@@ -1,5 +1,6 @@
 package WordCount1;
 
+import Utils.ThreadUtils;
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
@@ -32,6 +33,7 @@ public class SentenceSpout extends BaseRichSpout {
         if (index >= sentence.length) {
             index = 0;
         }
+        ThreadUtils.waitForMillis(1);
     }
 
     public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
