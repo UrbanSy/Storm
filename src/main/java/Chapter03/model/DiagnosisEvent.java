@@ -1,4 +1,4 @@
-package Chapter03;
+package Chapter03.model;
 
 import java.io.Serializable;
 

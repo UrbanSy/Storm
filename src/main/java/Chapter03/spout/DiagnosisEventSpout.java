@@ -1,4 +1,4 @@
-package Chapter03;
+package Chapter03.spout;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -18,11 +18,11 @@ public class DiagnosisEventSpout implements ITridentSpout<Long> {
     Emitter<Long> emitter = new DiagnosisEventEmitter();
 
     public BatchCoordinator getCoordinator(String s, Map map, TopologyContext topologyContext) {
-        return null;
+        return coordinator;
     }
 
     public Emitter getEmitter(String s, Map map, TopologyContext topologyContext) {
-        return null;
+        return emitter;
     }
 
     public Map getComponentConfiguration() {
@@ -30,6 +30,6 @@ public class DiagnosisEventSpout implements ITridentSpout<Long> {
     }
 
     public Fields getOutputFields() {
-        return null;
+        return new Fields("event");
     }
 }

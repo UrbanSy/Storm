@@ -1,5 +1,6 @@
-package Chapter03;
+package Chapter03.spout;
 
+import Chapter03.model.DiagnosisEvent;
 import storm.trident.operation.TridentCollector;
 import storm.trident.spout.ITridentSpout;
 import storm.trident.topology.TransactionAttempt;
@@ -25,7 +26,7 @@ public class DiagnosisEventEmitter implements ITridentSpout.Emitter<Long>,Serial
                 String diag = new Integer((320 + (int)(Math.random()*7))).toString();
                 DiagnosisEvent event = new DiagnosisEvent(lat,lng,time,diag);
                 events.add(event);
-                tridentCollector.equals(events);
+                tridentCollector.emit(events);
             }
     }
 
